@@ -1,13 +1,15 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Repair from './pages/Repair';
-import Install from './pages/Install';
-import Supply from './pages/Supply';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Repair from "./pages/Repair";
+import Install from "./pages/Install";
+import Supply from "./pages/Supply";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Products from "./pages/Products";
+import ProductDetails from "./components/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,26 @@ const router = createBrowserRouter([
       <>
         <Header />
         <Home />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "Products",
+    element: (
+      <>
+        <Header />
+        <Products />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "Products/:id",
+    element: (
+      <>
+        <Header />
+        <ProductDetails />
         <Footer />
       </>
     ),

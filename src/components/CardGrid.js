@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Cart';
-import Hybrid from '../assets/img/HW8101+.jpg'
+import Hybrid from '../assets/img/HW8101.jpg'
 
 const CardGrid = () => {
   const products = [

@@ -1,16 +1,41 @@
 import React from 'react';
-import Rooms from '../components/Rooms'
+import Rooms from '../components/HybridFloor'
 import HeroSlider from '../components/HeroSlider';
 import CardGrid from '../components/CardGrid';
 import Hybrid from '../assets/img/HW8022-2.png'
 import Design from '../assets/img/Design.jpg'
 import Repair  from '../assets/img/Repair.jpg'
 import Installation  from '../assets/img/Installation.jpg'
-import ServiceCard from '../components/ServiceCard';
 import useIntersectionObserver from '../components/useIntersectionObserver';
-import HybridFloor from '../components/Rooms';
+import HybridFloor from '../components/HybridFloor';
+import { FaHardHat, FaThumbsUp, FaTools } from "react-icons/fa";
+import { FaWrench, FaHammer, FaWarehouse } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import FeatureCard from '../components/FeatureCard';
+import ServiceCard from '../components/ServiceCard';
+import PriceMatch from '../components/PriceMatch';
 
 const services = [
+  {
+    icon: FaWrench,
+    title: 'Expert Repair',
+    description: 'Our experienced technicians provide top-notch repair services to restore your flooring to its original beauty.',
+    link: '/repair',  // Set the appropriate route
+  },
+  {
+    icon: FaWarehouse,
+    title: 'Premium Supply',
+    description: 'We supply a wide range of high-quality flooring materials to meet all your design needs.',
+    link: '/supply',  // Set the appropriate route
+  },
+  {
+    icon: FaHammer,
+    title: 'Professional Installation',
+    description: 'We specialize in flawless installations, ensuring your new floors are installed with precision and expertise.',
+    link: '/install',  // Set the appropriate route
+  },
+];
+const Features  = [
   {
     title: "Installation Services",
     description: `Inspecting and measuring the work area to advise cost estimates
@@ -18,14 +43,16 @@ const services = [
       Removing existing flooring & preparing the work surface
       Delivering high-quality installation
       Advising clients on flooring maintenance`,
-    image: Installation
+    image: Installation,
+    link :"/Install"
   },
   {
     title: "Common Repair Services",
     description: `Examine underfloor humidity & subfloor moisture levels
       Subfloor levels, flattening, and cleaning of any detritus or debris
       Repairing water & moisture damaged floorings`,
-    image: Repair
+    image: Repair,
+    link :"/Repair"
   },
   {
     title: "Floor Design",
@@ -33,17 +60,29 @@ const services = [
       Specialized in different stylings:
       Neutral form, asymmetrical patterns, and curves
       Symmetrical pattern straight lines, geometrical figures, and angles`,
-    image: Design
+    image: Design,
+    link :"/Supply"
   }
 ];
 
 const Home = () => {
   const [setRef, isVisible] = useIntersectionObserver();
   return <>
-  <HybridFloor/>
-  {/* <HeroSlider/>
-  
-  <section className="text-center py-8">
+  {/* <HybridFloor/> */}
+   <HeroSlider/>
+   <div className="m-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {services.map((service, index) => (
+        <ServiceCard
+          key={index}
+          icon={service.icon}
+          title={service.title}
+          description={service.description}
+          link={service.link}
+        />
+      ))}
+    </div>
+
+  <section className="text-center py-4">
   <h1 className="text-5xl justify-center flex m-auto pt-8">What We Offer</h1>
       <h3 className="text-xl text-accent font-semibold mt-4">Lower Prices, Greater Value!</h3>
       <p className="text-gray-600 mt-5 text-lg lg:max-w-4xl md:max-w-2xl max-w-md mx-auto">
@@ -54,7 +93,7 @@ const Home = () => {
       </button>
     </section>
     <CardGrid />
-
+     
 
     <section className="bg-cover bg-center bg-fixed h-96 flex my-8 items-center justify-center text-white"
      style={{ backgroundImage: `url(${Hybrid})` }}>
@@ -69,24 +108,25 @@ const Home = () => {
 <section className="py-12 bg-gray-100">
       <div className="container mx-auto p-6">
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
+          {Features.map((service, index) => (
             <div
               key={index}
               ref={setRef}
               className={`transition-transform duration-1000 ${isVisible ? 'transform translate-y-0 opacity-100' : 'transform translate-y-14 opacity-0'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 300}ms` }}
             >
-              <ServiceCard
+              <FeatureCard 
                 title={service.title}
                 description={service.description}
                 image={service.image}
+                link={service.link}
               />
             </div>
           ))}
         </div>
       </div>
-</section> */}
-
+</section> 
+<PriceMatch />
  
   {/* <Rooms/> */}
 

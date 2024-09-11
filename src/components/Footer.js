@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaWeixin, FaInstagram } from 'react-icons/fa';
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaWeixin, FaInstagram, FaFacebook, FaFacebookF } from 'react-icons/fa';
 import { SiReact } from 'react-icons/si';
 import logoWhite from '../assets/img/logo.jpg';
 
@@ -29,7 +29,7 @@ const Footer = () => {
           <h4 className='text-xl font-bold mb-4'>Keep In Touch</h4>
           <p className='flex items-center mb-2'>
             <FaMapMarkerAlt className='mr-2' />
-            1/177 Fairbairn Road, Sunshine West, VIC 3020
+            3/44 Henderson Rd, Rowville VIC 3178
           </p>
           <p className='flex items-center mb-2'>
             <FaPhoneAlt className='mr-2' />
@@ -37,7 +37,11 @@ const Footer = () => {
           </p>
           <p className='flex items-center mb-2'>
             <FaEnvelope className='mr-2' />
-            info@maplefloors.com
+            Info@maplefloors.com.au
+          </p>
+          <p className='flex items-center mb-2'>
+            <FaEnvelope className='mr-2' />
+Maplefloors@outlook.com.au
           </p>
           <p className='mb-2'>Mon – Fri: 9 am to 5 pm</p>
           <p>Saturday: 10 am to 12 pm</p>
@@ -52,8 +56,11 @@ const Footer = () => {
             <a href='https://weixin.qq.com/' className='hover:text-accent' aria-label="WeChat">
               <FaWeixin className='text-2xl' />
             </a>
-            <a href='https://instagram.com/' className='hover:text-accent' aria-label="Instagram">
+            <a href='https://www.instagram.com/maplefloors?utm_source=qr&igsh=NDl2ZzU3MWY2dDc=' className='hover:text-accent' aria-label="Instagram">
               <FaInstagram className='text-2xl' />
+            </a>
+            <a href='https://www.facebook.com/share/1gQVAXaxAGAiJqmX/?mibextid=qi2Omg' className='hover:text-accent' aria-label="Instagram">
+              <FaFacebookF className='text-2xl' />
             </a>
           </div>
         </div>

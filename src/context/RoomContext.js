@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
-import { roomData } from "../data";
+import { productData } from "../data";
 export const RoomContext = createContext();
 
 const RoomProvider = ({ children }) => {
-  const [rooms , setRooms] = useState(roomData)
+  const [products , setProducts] = useState(productData)
   return (
-  <RoomContext.Provider value={{rooms}}>
+  <RoomContext.Provider value={{products}}>
     {children}
     </RoomContext.Provider>
     )

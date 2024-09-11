@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade'
 import {EffectFade , Autoplay} from 'swiper';
-import img1 from "../assets/img/heroSlider/3033.png";
-import img2 from "../assets/img/heroSlider/HW8022-1.jpg";
-import img3 from "../assets/img/heroSlider/HW8101.png";
+import img1 from "../assets/img/3033.png";
+import img2 from "../assets/img/HW8022-1.jpg";
+import img3 from "../assets/img/HW8101.png";
 
 const slides=[
   {
