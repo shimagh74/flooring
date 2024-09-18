@@ -1,7 +1,9 @@
+// src/App.jsx
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Repair from "./pages/Repair";
 import Install from "./pages/Install";
@@ -10,92 +12,35 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 import ProductDetails from "./components/ProductDetails";
+import PriceBeatGuarantee from "./components/PriceBeatGuarantee";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/TermsConditions";
 
+// Layout with header, footer, and scroll-to-top icon
+const Layout = ({ children }) => (
+  <>
+    <Header />
+    {children}
+    <Footer />
+    <ScrollToTop /> {/* Add ScrollToTop here so it appears on every page */}
+  </>
+);
+
+// Define routes
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <>
-        <Header />
-        <Home />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Products",
-    element: (
-      <>
-        <Header />
-        <Products />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Products/:id",
-    element: (
-      <>
-        <Header />
-        <ProductDetails />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Repair",
-    element: (
-      <>
-        <Header />
-        <Repair />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Supply",
-    element: (
-      <>
-        <Header />
-        <Supply />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Install",
-    element: (
-      <>
-        <Header />
-        <Install />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "About",
-    element: (
-      <>
-        <Header />
-        <About />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "Contact",
-    element: (
-      <>
-        <Header />
-        <Contact />
-        <Footer />
-      </>
-    ),
-  },
+  { path: "/", element: <Layout><Home /></Layout> },
+  { path: "Products", element: <Layout><Products /></Layout> },
+  { path: "Products/:id", element: <Layout><ProductDetails /></Layout> },
+  { path: "Repair", element: <Layout><Repair /></Layout> },
+  { path: "Supply", element: <Layout><Supply /></Layout> },
+  { path: "Install", element: <Layout><Install /></Layout> },
+  { path: "About", element: <Layout><About /></Layout> },
+  { path: "Contact", element: <Layout><Contact /></Layout> },
+  { path: "PriceBeatGuarantee", element: <Layout><PriceBeatGuarantee /></Layout> },
+  { path: "PrivacyPolicy", element: <Layout><PrivacyPolicy /></Layout> },
+  { path: "TermsConditions", element: <Layout><TermsConditions /></Layout> },
 ]);
 
-const App = () => {
-  return <RouterProvider router={router} />;
-};
+const App = () => <RouterProvider router={router} />;
 
 export default App;

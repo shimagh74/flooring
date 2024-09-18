@@ -18,10 +18,11 @@ const Footer = () => {
         <div className='flex flex-col'>
           <h4 className='text-xl font-bold mb-4'>Useful Links</h4>
           <ul>
-            <li><a href='/about' className='hover:text-accent'>About</a></li>
-            <li><a href='/contact' className='hover:text-accent'>Contact</a></li>
-            <li><a href='/privacy-policy' className='hover:text-accent'>Privacy Policy</a></li>
-            <li><a href='/terms-conditions' className='hover:text-accent'>Terms & Conditions</a></li>
+            <li><a href='/About' className='hover:text-accent'>About</a></li>
+            <li><a href='/Contact' className='hover:text-accent'>Contact</a></li>
+            <li><a href='/privacyPolicy' className='hover:text-accent'>Privacy Policy</a></li>
+            <li><a href='/TermsConditions' className='hover:text-accent'>Terms & Conditions</a></li>
+            <li><a href='/PriceBeatGuarantee' className='hover:text-accent'>Price beat guarantee</a></li>
           </ul>
         </div>
 
