@@ -33,7 +33,7 @@ const Contact = () => {
   //       "service_rt7yacd",            // Service ID
   //       "template_ywnqkln",           // Template ID
   //       templateParams,
-  //       "nL_luaqTR2vB9hfhl"           // Public Key
+  //       "jQej3RBnsnfGP5qRV"           // Public Key
   //     )
   //     .then(
   //       (response) => {

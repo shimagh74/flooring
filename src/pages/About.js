@@ -10,7 +10,7 @@ const About = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 md:text-lg">
         {/* First Column */}
-        <div className="flex flex-col justify-center md:p-16 ">
+        <div className="flex flex-col justify-center md:p-16 p-6">
           <p className="mb-6">
             Welcome to Maple Floors! We are a team of passionate flooring
             experts dedicated to providing top-quality flooring solutions for
@@ -45,7 +45,7 @@ const About = () => {
         </div>
 
         {/* Text Column */}
-        <div className="flex flex-col justify-center p-6 ">
+        <div className="flex flex-col justify-center md:p-16 p-6">
           <p className="mb-6 ">
             At Maple Floors, customer satisfaction is our top priority. We are
             committed to delivering outstanding service and results that exceed

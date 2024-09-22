@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { RoomContext } from '../context/RoomContext';
+import { FloorContext } from '../context/FloorContext';
 import { Link } from 'react-router-dom';
 import qrCodeImage from '../assets/img/qrCodeImage.jpeg'
 
 const HybridFloor = () => {
-  const { products } = useContext(RoomContext);
+  const { products } = useContext(FloorContext);
 
   return (
     <>      

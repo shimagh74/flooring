@@ -1,32 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logodark from "../assets/img/logo-dark.svg";
-import logolight from "../assets/img/logo-white.svg";
 import { navMenu } from "../data";
-
+import { FaTimes, FaBars } from "react-icons/fa";
 
 const Header = () => {
   const [header, setHeader] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       window.scrollY > 50 ? setHeader(true) : setHeader(false);
     });
-  });
+  }, []);
+
   return (
-    <header className={`${header ? "bg-white py-6 shadow-lg" : "bg-transparent py-8"} fixed z-50 w-full transition-all duration-300`}
+    <header
+      className={`${header ? "bg-white py-6 shadow-lg" : "bg-transparent py-8"} fixed z-50 w-full transition-all duration-300`}
     >
-      <div className="container mx-auto flex flex-col items-center gap-y-6 lg:flex-row lg:justify-between lg:gap-y-0">
+      <div className="container mx-auto flex items-center justify-between">
+
         <a href="/">
           {header ? (
-            // <img className="w-[160px]" src={logodark} />
             <span className="w-[260px] text-2xl text-accent tracking-[5px] ">Maple Floors</span>
           ) : (
             <span className="w-[260px] text-2xl text-accent tracking-[5px] ">Maple Floors</span>
-            // <img className="w-[160px]" src={logolight} />
           )}
         </a>
+
+        {/* Hamburger menu for mobile */}
+        <div className="lg:hidden z-50">
+          <button
+            className="text-2xl focus:outline-none text-accent"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
+        {/* Desktop navigation */}
         <nav
-          className={`${header ? "text-primary" : "text-accent"} flex gap-x-4 font-bold font-tertiary tracking-[2px] text-[16px] items-center uppercase lg:gap-x-8`}
+          className={`${
+            header ? "text-primary" : "text-accent"
+          } hidden lg:flex gap-x-8 font-bold font-tertiary tracking-[2px] text-[16px] items-center uppercase`}
         >
           {navMenu.map((menu, i) => (
             <Link key={i} to={menu.path} className="hover:text-accent transition">
@@ -34,6 +50,24 @@ const Header = () => {
             </Link>
           ))}
         </nav>
+
+        {/* Mobile navigation */}
+        <div
+          className={`${
+            isMobileMenuOpen ? "left-0" : "-left-full"
+          } lg:hidden fixed top-0 left-0 w-full h-screen bg-black bg-opacity-80 flex flex-col justify-center items-center gap-y-8 transition-all duration-300`}
+        >
+          {navMenu.map((menu, i) => (
+            <Link
+              key={i}
+              to={menu.path}
+              className="text-white text-2xl font-bold uppercase"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {menu.title}
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   );

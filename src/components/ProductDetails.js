@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Slider from "react-slick";
 import { useParams } from "react-router-dom";
-import { RoomContext } from "../context/RoomContext";
+import { FloorContext } from "../context/FloorContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PageHeader from "./PageHeader";
@@ -26,7 +26,7 @@ const PrevArrow = ({ className, style, onClick }) => (
 );
 
 const ProductDetails = () => {
-  const { products } = useContext(RoomContext);
+  const { products } = useContext(FloorContext);
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
 
@@ -87,7 +87,6 @@ const ProductDetails = () => {
             </Slider>
           </div>
 
-          {/* Product Information */}
           <div className="lg:w-1/2 lg:pl-10">
             <h1 className="text-3xl font-bold mb-4">{name}</h1>
             <h1 className="text-xl mb-4">Product Code: {code}</h1>
@@ -96,8 +95,6 @@ const ProductDetails = () => {
                 <span key={index}>{item.description}</span>
               ))}
             </p>
-
-            {/* Quantity, Add to Cart, and Order Sample */}
             <div className="mt-10">
               <button
                 className="btn-white btn-sm px-6 border py-2 rounded shadow"
@@ -105,9 +102,6 @@ const ProductDetails = () => {
               >
                 Request a Quote
               </button>
-              {/* <button className="ml-4 btn-primary btn-sm text-white px-6 py-2 rounded shadow">
-                Call Us
-              </button> */}
               <a
                 href="tel:0490200853"
                 className="ml-4 btn-primary  text-white px-10 py-[13px] rounded shadow"
