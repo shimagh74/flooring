@@ -121,13 +121,13 @@ const Contact = () => {
                 <p>3/44 Henderson Rd, Rowville VIC 3178</p>
               </div>
             </div>
-            <div className="flex items-start">
+            {/* <div className="flex items-start">
               <FaClock className="text-2xl text-accent mr-4" />
               <div>
                 <h3 className="text-xl font-semibold mb-1">Opening Hours</h3>
                 <p>Mon – Fri: 9AM to 5PM<br />Saturday: 10AM to 12PM</p>
               </div>
-            </div>
+            </div> */}
             <div className="flex items-start">
               <FaEnvelope className="text-2xl text-accent mr-4" />
               <div>

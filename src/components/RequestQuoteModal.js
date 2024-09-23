@@ -1,17 +1,17 @@
 // src/components/RequestQuoteModal.js
 import React, { useState } from 'react';
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 const RequestQuoteModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    productTitle: '',
-    size: '',
-    grading: '',
-    quantity: '',
-    suburb: '',
+    // productTitle: '',
+    // size: '',
+    // grading: '',
+    // quantity: '',
+    // suburb: '',
     message: ''
   });
 
@@ -23,17 +23,41 @@ const RequestQuoteModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // try {
-    //   const result = await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_USER_ID');
-    //   console.log('Email sent successfully:', result);
-    //   alert('Your request has been sent successfully!');
-    //   onClose(); // Close the modal after successful submission
-    // } catch (error) {
-    //   console.error('Error sending email:', error);
-    //   alert('Failed to send your request. Please try again.');
-    // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { name, email, phone, message } = formData;
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      message: message,
+    };
+
+    emailjs
+    .send(
+      "service_dh0uccb",            // Service ID
+      "template_dizzxye",           // Template ID
+      templateParams,
+      "jQej3RBnsnfGP5qRV"           // Public Key
+    )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+
+    // Reset the form fields after submission
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   if (!isOpen) return null;
@@ -87,6 +111,79 @@ const RequestQuoteModal = ({ isOpen, onClose }) => {
               required
             />
           </div>
+
+          {/* <div className="mb-2">
+            <label className="block text-sm font-medium mb-1">
+              Product Title <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="productTitle"
+              value={formData.productTitle}
+              onChange={handleChange}
+              placeholder="Enter the product title"
+              className="w-full border border-gray-300 px-4 md:py-2 py-1 rounded-lg placeholder-gray-400 text-gray-800 focus:outline-none focus:border-primary"
+            />
+          </div> */}
+
+          {/* <div className="mb-2">
+            <label className="block text-sm font-medium mb-1">
+              Size
+            </label>
+            <input
+              type="text"
+              name="size"
+              value={formData.size}
+              onChange={handleChange}
+              placeholder="Enter size"
+              className="w-full border border-gray-300 px-4 md:py-2 py-1 rounded-lg placeholder-gray-400 text-gray-800 focus:outline-none focus:border-primary"
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="block text-sm font-medium mb-1">
+              Grading
+            </label>
+            <input
+              type="text"
+              name="grading"
+              value={formData.grading}
+              onChange={handleChange}
+              placeholder="Enter grading"
+              className="w-full border border-gray-300 px-4 md:py-2 py-1 rounded-lg placeholder-gray-400 text-gray-800 focus:outline-none focus:border-primary"
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="block text-sm font-medium mb-1">
+              Quantity <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="number"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+              placeholder="Enter quantity"
+              className="w-full border border-gray-300 px-4 md:py-2 py-1 rounded-lg placeholder-gray-400 text-gray-800 focus:outline-none focus:border-primary"
+              required
+            />
+          </div>
+
+          <div className="mb-2">
+            <label className="block text-sm font-medium mb-1">
+              Suburb <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="suburb"
+              value={formData.suburb}
+              onChange={handleChange}
+              placeholder="Enter suburb"
+              className="w-full border border-gray-300 px-4 md:py-2 py-1 rounded-lg placeholder-gray-400 text-gray-800 focus:outline-none focus:border-primary"
+              required
+            />
+          </div> */}
+
           <div className="mb-2">
             <label className="block text-sm font-medium mb-1">
               Message <span className="text-red-500">*</span>
