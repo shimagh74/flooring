@@ -1,10 +1,8 @@
 import React from "react";
 import aboutImage from "../assets/img/1009.png";
-import aboutImage2 from "../assets/img/1077.png";
 import PageHeader from "../components/PageHeader";
 import exampleImage1 from "../assets/img/install/install2.jpg";
 import exampleImage2 from "../assets/img/install/install4.jpg";
-import exampleImage3 from "../assets/img/install/install3.jpg";
 import { Link } from "react-router-dom";
 
 const About = () => {
