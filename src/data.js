@@ -348,10 +348,6 @@ export const navMenu = [
     path: "/Repair",
   },
   {
-    title: "Supply",
-    path: "/Supply",
-  },
-  {
     title: "Install",
     path: "/Install",
   },

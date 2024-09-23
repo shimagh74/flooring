@@ -7,7 +7,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Repair from "./pages/Repair";
 import Install from "./pages/Install";
-import Supply from "./pages/Supply";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products";
@@ -16,13 +15,12 @@ import PriceBeatGuarantee from "./components/PriceBeatGuarantee";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsConditions from "./components/TermsConditions";
 
-// Layout with header, footer, and scroll-to-top icon
 const Layout = ({ children }) => (
   <>
     <Header />
     {children}
     <Footer />
-    <ScrollToTop /> {/* Add ScrollToTop here so it appears on every page */}
+    <ScrollToTop />
   </>
 );
 
@@ -32,7 +30,6 @@ const router = createBrowserRouter([
   { path: "Products", element: <Layout><Products /></Layout> },
   { path: "Products/:id", element: <Layout><ProductDetails /></Layout> },
   { path: "Repair", element: <Layout><Repair /></Layout> },
-  { path: "Supply", element: <Layout><Supply /></Layout> },
   { path: "Install", element: <Layout><Install /></Layout> },
   { path: "About", element: <Layout><About /></Layout> },
   { path: "Contact", element: <Layout><Contact /></Layout> },

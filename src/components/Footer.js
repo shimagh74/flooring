@@ -2,6 +2,7 @@ import React from 'react';
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaWeixin, FaInstagram, FaFacebook, FaFacebookF } from 'react-icons/fa';
 import { SiReact } from 'react-icons/si';
 import logoWhite from '../assets/img/logo.jpg';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -18,11 +19,11 @@ const Footer = () => {
         <div className='flex flex-col'>
           <h4 className='text-xl font-bold mb-4'>Useful Links</h4>
           <ul>
-            <li><a href='/About' className='hover:text-accent'>About</a></li>
-            <li><a href='/Contact' className='hover:text-accent'>Contact</a></li>
-            <li><a href='/privacyPolicy' className='hover:text-accent'>Privacy Policy</a></li>
-            <li><a href='/TermsConditions' className='hover:text-accent'>Terms & Conditions</a></li>
-            <li><a href='/PriceBeatGuarantee' className='hover:text-accent'>Price beat guarantee</a></li>
+            <li><Link to='/About' className='hover:text-accent'>About</Link></li>
+            <li><Link to='/Contact' className='hover:text-accent'>Contact</Link></li>
+            <li><Link to='/PrivacyPolicy' className='hover:text-accent'>Privacy Policy</Link></li>
+            <li><Link to='/TermsConditions' className='hover:text-accent'>Terms & Conditions</Link></li>
+            <li><Link to='/PriceBeatGuarantee' className='hover:text-accent'>Price beat guarantee</Link></li>
           </ul>
         </div>
 
