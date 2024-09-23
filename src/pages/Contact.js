@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import contactImage from '../assets/img/1009.png';
 import { FaMapMarkerAlt, FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';
 import PageHeader from '../components/PageHeader';
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   // State Management
@@ -17,39 +17,39 @@ const Contact = () => {
   const handlePhoneChange = (e) => setPhone(e.target.value);
   const handleMessageChange = (e) => setMessage(e.target.value);
 
-  // Handle Form Submission
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
 
-  //   const templateParams = {
-  //     from_name: name,
-  //     from_email: email,
-  //     from_phone: phone,
-  //     message: message,
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  //   emailjs
-  //     .send(
-  //       "service_rt7yacd",            // Service ID
-  //       "template_ywnqkln",           // Template ID
-  //       templateParams,
-  //       "jQej3RBnsnfGP5qRV"           // Public Key
-  //     )
-  //     .then(
-  //       (response) => {
-  //         console.log("SUCCESS!", response.status, response.text);
-  //       },
-  //       (error) => {
-  //         console.log("FAILED...", error);
-  //       }
-  //     );
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      message: message,
+    };
 
-  //   // Reset the form fields after submission
-  //   setName("");
-  //   setEmail("");
-  //   setPhone("");
-  //   setMessage("");
-  // };
+    emailjs
+      .send(
+        "service_dh0uccb",            // Service ID
+        "template_dizzxye",           // Template ID
+        templateParams,
+        "jQej3RBnsnfGP5qRV"           // Public Key
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+
+    // Reset the form fields after submission
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+  };
 
   return (
     <>
@@ -62,7 +62,7 @@ const Contact = () => {
           <div>
             <h2 className="text-3xl font-semibold mb-8">Get in Touch</h2>
             {/* <form className="space-y-6" onSubmit={handleSubmit}> */}
-            <form className="space-y-2" onSubmit={()=>console.log}>
+            <form className="space-y-2" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium mb-2" htmlFor="name">Your Name *</label>
                 <input 

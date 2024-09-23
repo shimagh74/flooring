@@ -12,7 +12,6 @@ const Products = () => {
       <HybridFloor />
       <section className="py-12 bg-gray-100">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
-          {/* Left Side - Text */}
           <div className="md:w-1/2 p-6">
             <h2 className="h2 text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Our Momentum</h2>
             <h3 className="h3 font-semibold mb-4 text-accent">No Job is too BIG or too SMALL!</h3>
@@ -26,8 +25,6 @@ const Products = () => {
               <li className="mb-2">Reasonable Pricing</li>
             </ul>
           </div>
-
-          {/* Right Side - Image */}
           <div className="md:w-1/2 p-6 flex justify-center items-center">
             <img
               src={floor}
