@@ -110,48 +110,54 @@ const Home = () => {
       <CardGrid />
 
       <section
-        className="bg-cover bg-center bg-fixed h-96 flex my-8 items-center justify-center text-white"
-        style={{ backgroundImage: `url(${Hybrid})` }}
-      >
-        <div className="text-center">
-          <h3 className="text-3xl font-bold">GET FREE CONSULTANCY</h3>
-          <p className="text-xl my-4">
-            Receive a Complimentary On-Site Consultation and Instant Quote
-            Today!
-          </p>
-          <a
-            href="tel:0490200853"
-            className="btn-white text-accent uppercase font-semibold text-lg px-10 mt-6 py-3 mx-auto rounded-lg shadow-md"
-          >
-            Call Us
-          </a>
-        </div>
-      </section>
+  className="bg-cover bg-center lg:bg-fixed h-96 flex my-8 items-center justify-center text-white"
+  style={{ 
+    backgroundImage: `url(${Hybrid})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+  }}
+>
+  <div className="text-center">
+    <h3 className="text-3xl font-bold">GET FREE CONSULTANCY</h3>
+    <p className="text-xl my-4">
+      Receive a Complimentary On-Site Consultation and Instant Quote
+      Today!
+    </p>
+    <a
+      href="tel:0490200853"
+      className="btn-white text-accent uppercase font-semibold text-lg px-10 mt-6 py-3 mx-auto rounded-lg shadow-md"
+    >
+      Call Us
+    </a>
+  </div>
+</section>
       <section className="py-12 bg-gray-100">
-        <div className="container mx-auto p-6">
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {Features.map((service, index) => (
-              <div
-                key={index}
-                ref={setRef}
-                className={`transition-transform duration-1000 ${
-                  isVisible
-                    ? "transform translate-y-0 opacity-100"
-                    : "transform translate-y-14 opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 300}ms` }}
-              >
-                <FeatureCard
-                  title={service.title}
-                  description={service.description}
-                  image={service.image}
-                  link={service.link}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto p-6">
+    <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {Features.map((service, index) => (
+        <div
+        key={index}
+        ref={setRef}
+        // className={`transition-transform duration-500 ${
+        //   isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+        // }`}
+        style={{
+          transitionDelay: `${index * 150}ms`,
+        }}
+      >
+        <FeatureCard
+          title={service.title}
+          description={service.description}
+          image={service.image}
+          link={service.link}
+        />
+      </div>
+      
+      ))}
+    </div>
+  </div>
+</section>
+
       <PriceMatch />
 
       {/* <Rooms/> */}

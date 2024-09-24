@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 const useIntersectionObserver = (options = {}) => {
@@ -10,10 +9,10 @@ const useIntersectionObserver = (options = {}) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsIntersecting(true);
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Optional: can be removed if elements should stay observed.
         }
       },
-      { threshold: 0.1, ...options }
+      { threshold: 0.001, ...options } // Reduced threshold for earlier triggering
     );
 
     if (ref) {
