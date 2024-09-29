@@ -1,18 +1,25 @@
 import React from 'react';
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaWeixin, FaInstagram, FaFacebook, FaFacebookF } from 'react-icons/fa';
 import { SiReact } from 'react-icons/si';
-import logoWhite from '../assets/img/logo.jpg';
+import whiteLogo from '../assets/img/whiteLogo.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className='bg-primary py-12 text-white'>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        <div className='flex flex-col items-center'>
-          <a href='/' className='flex items-center mb-6'>
+        <div className='flex flex-col'>
+          {/* <a href='/' className='flex items-center mb-6'>
             <img src={logoWhite} alt='Maple Floors Logo' className='w-24 h-24 mb-4' />
             <span className='text-2xl text-accent tracking-[5px] mx-2'>Maple Floors</span>
-          </a>
+          </a> */}
+          <a href="/">
+          <img
+            src={whiteLogo}
+            alt="whiteLogo"
+            className="w-[220px]  mb-6 "
+          />
+        </a>
           <p>&copy; {new Date().getFullYear()} Maple Floors. All rights reserved.</p>
         </div>
 

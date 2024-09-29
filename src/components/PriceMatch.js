@@ -18,7 +18,7 @@ const PriceMatchButton = () => {
     <>
       <button
         onClick={handleButtonClick}
-        className="fixed bottom-4 left-4 bg-accent text-white p-4 rounded-full shadow-lg btn-primary"
+        className="fixed bottom-4 right-4 bg-accent text-white p-4 rounded-full shadow-lg btn-primary"
         style={{ width: '120px', height: '120px', lineHeight: 'normal' }}
       >
         <span className="text-base font-semibold">

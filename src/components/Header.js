@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { navMenu } from "../data";
 import { FaTimes, FaBars } from "react-icons/fa";
+import whiteLogo from "../assets/img/whiteLogo.png";
 
 const Header = () => {
   const [header, setHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -16,16 +16,17 @@ const Header = () => {
 
   return (
     <header
-      className={`${header ? "bg-white py-6 shadow-lg" : "bg-transparent py-8"} fixed z-50 w-full transition-all duration-300`}
+      className={`${
+        header ? "bg-white py-5 shadow-lg" : "bg-transparent py-4"
+      } fixed z-50 w-full transition-all duration-300`}
     >
       <div className="container mx-auto flex items-center justify-between">
-
         <a href="/">
-          {header ? (
-            <span className="w-[260px] text-2xl text-accent tracking-[5px] ">Maple Floors</span>
-          ) : (
-            <span className="w-[260px] text-2xl text-accent tracking-[5px] ">Maple Floors</span>
-          )}
+          <img
+            src={whiteLogo}
+            alt="whiteLogo"
+            className="w-[180px]"
+          />
         </a>
 
         {/* Hamburger menu for mobile */}
@@ -45,7 +46,11 @@ const Header = () => {
           } hidden lg:flex gap-x-8 font-bold font-tertiary tracking-[2px] text-[16px] items-center uppercase`}
         >
           {navMenu.map((menu, i) => (
-            <Link key={i} to={menu.path} className="hover:text-accent transition">
+            <Link
+              key={i}
+              to={menu.path}
+              className="hover:text-accent transition"
+            >
               {menu.title}
             </Link>
           ))}

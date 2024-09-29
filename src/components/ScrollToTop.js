@@ -31,7 +31,7 @@ const ScrollToTop = () => {
     <div>
       {isVisible && (
         <div
-          className="fixed bottom-8 right-8 bg-white text-accent border-accent border-[1px]   p-3 rounded-full shadow-lg cursor-pointer"
+          className="fixed bottom-8 left-8 bg-white text-accent border-accent border-[1px]   p-3 rounded-full shadow-lg cursor-pointer"
           onClick={scrollToTop}
         >
           <FaArrowUp className="w-6 h-6" />
