@@ -8,6 +8,7 @@ import PageHeader from "./PageHeader";
 import hybridFloor from "../assets/img/1004.png";
 import { descriptionDetails, descriptionHybrid, TechnicalData } from "../data";
 import RequestQuoteModal from "./RequestQuoteModal";
+import { IoCloseSharp } from "react-icons/io5";
 
 const NextArrow = ({ className, style, onClick }) => (
   <div
@@ -28,7 +29,8 @@ const PrevArrow = ({ className, style, onClick }) => (
 const ProductDetails = () => {
   const { products } = useContext(FloorContext);
   const { id } = useParams();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false); // Quote modal state
+  const [enlargedImageIndex, setEnlargedImageIndex] = useState(null); // Image enlargement state
 
   const product = products.find((product) => product.id === Number(id));
   const { name, description, image, imageLg, price, imageLg2, code } = product;
@@ -57,7 +59,7 @@ const ProductDetails = () => {
     prevArrow: <PrevArrow />,
   };
 
-  // Function to handle modal open
+  // Function to handle modal open for quotes
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -65,6 +67,28 @@ const ProductDetails = () => {
   // Function to handle modal close
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  // Function to handle image enlargement modal open
+  const openImageModal = (index) => {
+    setEnlargedImageIndex(index); // Set index of clicked image
+  };
+
+  // Function to close image enlargement modal
+  const closeImageModal = () => {
+    setEnlargedImageIndex(null);
+  };
+
+  // Navigate to next image in modal
+  const goToNextImage = () => {
+    setEnlargedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Navigate to previous image in modal
+  const goToPrevImage = () => {
+    setEnlargedImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -80,7 +104,8 @@ const ProductDetails = () => {
                   <img
                     src={imgSrc}
                     alt={`slide-${index}`}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain cursor-pointer"
+                    onClick={() => openImageModal(index)} // Open modal on image click
                   />
                 </div>
               ))}
@@ -104,7 +129,7 @@ const ProductDetails = () => {
               </button>
               <a
                 href="tel:0490200853"
-                className="ml-4 btn-primary  text-white px-10 py-[13px] rounded shadow"
+                className="ml-4 btn-primary text-white px-10 py-[13px] rounded shadow"
               >
                 Call Us
               </a>
@@ -140,8 +165,45 @@ const ProductDetails = () => {
           </div>
         </section>
       </section>
+
+      {/* Request Quote Modal */}
       <RequestQuoteModal isOpen={isModalOpen} onClose={closeModal} />
 
+      {/* Image Enlargement Modal */}
+      {enlargedImageIndex !== null && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
+          <div className="relative max-w-full max-h-full p-4 md:p-6 lg:p-8">
+            {/* Image Navigation */}
+            <button
+              className="absolute top-1/2 left-4 text-white text-4xl"
+              onClick={goToPrevImage}
+            >
+              &#10094; {/* Left Arrow */}
+            </button>
+
+            <img
+              src={images[enlargedImageIndex]}
+              alt="Enlarged"
+              className="max-w-full max-h-[80vh] object-contain"
+            />
+
+            <button
+              className="absolute top-1/2 right-4 text-white text-4xl"
+              onClick={goToNextImage}
+            >
+              &#10095; {/* Right Arrow */}
+            </button>
+
+            {/* Close button */}
+            <button
+              className="absolute top-8 right-8  text-white px-4 py-2 text-4xl"
+              onClick={closeImageModal}
+            >
+             <IoCloseSharp />
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

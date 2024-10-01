@@ -21,21 +21,21 @@ const services = [
     title: "Expert Repair",
     description:
       "Our experienced technicians provide top-notch repair services to restore your flooring to its original beauty.",
-    link: "/repair", // Set the appropriate route
+    link: "/Repair", 
   },
   {
     icon: FaWarehouse,
     title: "Premium Supply",
     description:
       "We supply a wide range of high-quality flooring materials to meet all your design needs.",
-    link: "/supply", // Set the appropriate route
+    link: "/Products", 
   },
   {
     icon: FaHammer,
     title: "Professional Installation",
     description:
       "We specialize in flawless installations, ensuring your new floors are installed with precision and expertise.",
-    link: "/install", // Set the appropriate route
+    link: "/Install", 
   },
 ];
 const Features = [
@@ -64,7 +64,7 @@ const Features = [
       Neutral form, asymmetrical patterns, and curves
       Symmetrical pattern straight lines, geometrical figures, and angles`,
     image: Design,
-    link: "/Supply",
+    link: "/Products",
   },
 ];
 
