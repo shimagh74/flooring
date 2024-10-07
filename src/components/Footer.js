@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaWhatsapp, FaWeixin, FaInstagram, FaFacebook, FaFacebookF } from 'react-icons/fa';
-import { SiReact } from 'react-icons/si';
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import whiteLogo from '../assets/img/whiteLogo.png';
 import { Link } from 'react-router-dom';
 

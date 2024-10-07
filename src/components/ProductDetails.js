@@ -29,8 +29,8 @@ const PrevArrow = ({ className, style, onClick }) => (
 const ProductDetails = () => {
   const { products } = useContext(FloorContext);
   const { id } = useParams();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Quote modal state
-  const [enlargedImageIndex, setEnlargedImageIndex] = useState(null); // Image enlargement state
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [enlargedImageIndex, setEnlargedImageIndex] = useState(null); 
 
   const product = products.find((product) => product.id === Number(id));
   const { name, description, image, imageLg, price, imageLg2, code } = product;
@@ -58,33 +58,22 @@ const ProductDetails = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
-
-  // Function to handle modal open for quotes
   const openModal = () => {
     setIsModalOpen(true);
   };
-
-  // Function to handle modal close
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  // Function to handle image enlargement modal open
   const openImageModal = (index) => {
-    setEnlargedImageIndex(index); // Set index of clicked image
+    setEnlargedImageIndex(index); 
   };
-
-  // Function to close image enlargement modal
   const closeImageModal = () => {
     setEnlargedImageIndex(null);
   };
-
-  // Navigate to next image in modal
   const goToNextImage = () => {
     setEnlargedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
-
-  // Navigate to previous image in modal
   const goToPrevImage = () => {
     setEnlargedImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -94,9 +83,8 @@ const ProductDetails = () => {
   return (
     <>
       <PageHeader title="" imageSrc={hybridFloor} />
-      <section className="container mx-auto p-6">
+      <section className="m-6">
         <div className="flex flex-col lg:flex-row">
-          {/* Image Slider */}
           <div className="lg:w-1/2">
             <Slider {...settings}>
               {images.map((imgSrc, index) => (
@@ -104,15 +92,15 @@ const ProductDetails = () => {
                   <img
                     src={imgSrc}
                     alt={`slide-${index}`}
-                    className="w-full h-auto object-contain cursor-pointer"
-                    onClick={() => openImageModal(index)} // Open modal on image click
+                    className="w-full h-auto object-contain  cursor-pointer"
+                    onClick={() => openImageModal(index)}
                   />
                 </div>
               ))}
             </Slider>
           </div>
 
-          <div className="lg:w-1/2 lg:pl-10">
+          <div className="lg:w-1/2 lg:pl-10 mt-8">
             <h1 className="text-3xl font-bold mb-4">{name}</h1>
             <h1 className="text-xl mb-4">Product Code: {code}</h1>
             <p className="text-gray-700 mb-6">
@@ -138,7 +126,6 @@ const ProductDetails = () => {
         </div>
 
         <section className="container mx-auto p-6">
-          {/* Product Specifications */}
           <div className="mt-10">
             <h2 className="text-2xl font-bold mb-4">Specifications</h2>
             <ul className="list-disc ml-4">
@@ -150,8 +137,6 @@ const ProductDetails = () => {
               ))}
             </ul>
           </div>
-
-          {/* Technical Data */}
           <div className="mt-10">
             <h2 className="text-2xl font-bold mb-4">Technical Data</h2>
             <ul className="list-disc ml-4">
@@ -165,38 +150,32 @@ const ProductDetails = () => {
           </div>
         </section>
       </section>
-
-      {/* Request Quote Modal */}
       <RequestQuoteModal isOpen={isModalOpen} onClose={closeModal} />
-
-      {/* Image Enlargement Modal */}
       {enlargedImageIndex !== null && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
           <div className="relative max-w-full max-h-full p-4 md:p-6 lg:p-8">
-            {/* Image Navigation */}
+      
             <button
               className="absolute top-1/2 left-4 text-white text-4xl"
               onClick={goToPrevImage}
             >
-              &#10094; {/* Left Arrow */}
+              &#10094;
             </button>
 
             <img
               src={images[enlargedImageIndex]}
               alt="Enlarged"
-              className="max-w-full max-h-[80vh] object-contain"
+              className="max-w-full max-h-[95vh] object-contain"
             />
 
             <button
               className="absolute top-1/2 right-4 text-white text-4xl"
               onClick={goToNextImage}
             >
-              &#10095; {/* Right Arrow */}
+              &#10095;
             </button>
-
-            {/* Close button */}
             <button
-              className="absolute top-8 right-8  text-white px-4 py-2 text-4xl"
+              className="absolute md:top-8 top-4 md:right-8 right-4 text-white px-4 py-2 text-4xl"
               onClick={closeImageModal}
             >
              <IoCloseSharp />

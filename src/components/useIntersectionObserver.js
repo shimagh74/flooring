@@ -9,10 +9,10 @@ const useIntersectionObserver = (options = {}) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsIntersecting(true);
-          observer.unobserve(entry.target); // Optional: can be removed if elements should stay observed.
+          observer.unobserve(entry.target); 
         }
       },
-      { threshold: 0.001, ...options } // Reduced threshold for earlier triggering
+      { threshold: 0.001, ...options } 
     );
 
     if (ref) {

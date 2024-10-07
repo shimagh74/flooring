@@ -1,4 +1,4 @@
-// PriceMatchButton.js
+
 import React, { useState } from 'react';
 import PriceMatchModal from './PriceMatchModal';
 

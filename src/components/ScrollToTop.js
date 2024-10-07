@@ -1,11 +1,9 @@
-// src/components/ScrollToTop.jsx
+
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  // Toggle the visibility of the scroll button
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -14,7 +12,6 @@ const ScrollToTop = () => {
     }
   };
 
-  // Scroll to the top of the page
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

@@ -8,8 +8,7 @@ const PriceMatchModal = ({ isOpen, onClose }) => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4">Price Match Guarantee</h2>
         <p className="mb-6">
-          We offer a price match guarantee! If you find a lower price elsewhere, we'll match it.
-          Contact us for more details.
+        We offer a price match guarantee! If you find a lower price elsewhere, we will beat it by 5 percent. Contact us for more details.
         </p>
         <button
           onClick={onClose}

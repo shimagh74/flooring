@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
@@ -24,7 +24,6 @@ const Layout = ({ children }) => (
   </>
 );
 
-// Define routes
 const router = createBrowserRouter([
   { path: "/", element: <Layout><Home /></Layout> },
   { path: "Products", element: <Layout><Products /></Layout> },

@@ -11,7 +11,7 @@ const HybridFloor = () => {
 
    
     <section className="py-24">
-      <div className="container mx-auto px-4 lg:px-0">
+      <div className=" px-4 lg:px-0">
         <div className="text-center mb-16">
           <h1 className="text-3xl font-semibold mb-4">What Is Hybrid Flooring?</h1>
           <p className="text-lg max-w-2xl mx-auto">
@@ -44,7 +44,6 @@ const HybridFloor = () => {
           </a>
         </div>
 
-        {/* QR Code */}
         <div className="flex justify-center">
           <img
             src={qrCodeImage}
@@ -54,13 +53,12 @@ const HybridFloor = () => {
         </div>
       </div>
     </section>
-        {/* Product Listing Section */}
         <div className="mb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-2">
             {products.map((product) => (
                <Link to={`/products/${product.id}`}>
                 <div className="border rounded-lg p-2 shadow-lg hover:shadow-xl transition-shadow duration-300">
-               <img src={product.image} alt={product.name} className="w-full h-64 object-cover mb-2" />
+               <img src={product.image} alt={product.name} className="w-full object-cover mb-2" />
                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                {/* <p className="text-lg font-semibold mt-2">{product.price}</p> */}
              </div>
